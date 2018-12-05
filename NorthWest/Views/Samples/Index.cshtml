@@ -1,0 +1,111 @@
+﻿@model IEnumerable<NorthWest.Models.Sample>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkOrder.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LTNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeqCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssayID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SampleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateArrived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Appearance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MolMass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfirmationDTTM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MTD)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkOrder.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LTNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeqCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssayID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SampleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateArrived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appearance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MolMass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConfirmationDTTM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MTD)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SampleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SampleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SampleID })
+        </td>
+    </tr>
+}
+
+</table>

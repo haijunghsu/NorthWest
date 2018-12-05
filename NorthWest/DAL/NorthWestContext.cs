@@ -18,5 +18,6 @@ namespace NorthWest.DAL
         public DbSet<SalesAgent> SalesAgents { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<WorkOrder> WorkOrders { get; set; }
+        public DbSet<Sample> Samples { get; set; }
     }
 }

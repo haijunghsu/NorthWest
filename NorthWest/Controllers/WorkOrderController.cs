@@ -8,15 +8,11 @@ using NorthWest.Models;
 
 namespace NorthWest.Controllers
 {
-    public class HomeController : Controller
+    public class WorkOrderController : Controller
     {
         private NorthWestContext db = new NorthWestContext();
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        public ActionResult PlaceOrder()
+        public ActionResult Index()
         {
             ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName");
             ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName");
@@ -25,7 +21,7 @@ namespace NorthWest.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult PlaceOrder([Bind(Include = "OrderID,AgentID,CustomerID,TestTubeID,PaymentInfo,Comments,DiscountApplied,Deposit")] WorkOrder workOrder)
+        public ActionResult Index([Bind(Include = "OrderID,AgentID,CustomerID,TestTubeID,PaymentInfo,Comments,DiscountApplied,Deposit")] WorkOrder workOrder)
         {
             if (ModelState.IsValid)
             {
@@ -49,22 +45,14 @@ namespace NorthWest.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SampleForm([Bind(Include = "SampleID,AssayID,SampleName")] Sample sample, int OrderID, string answer)
+        public ActionResult SampleForm([Bind(Include = "SampleID,AssayID,SampleName")] Sample sample, int OrderID)
         {
             if (ModelState.IsValid)
             {
-
                 sample.OrderID = OrderID;
                 db.Samples.Add(sample);
                 db.SaveChanges();
-                switch (answer)
-                {
-                    case "Add New Sample":
-                        return RedirectToAction("SampleForm", new { OrderID = OrderID });
-                    case "Submit Sample(s)":
-                        return RedirectToAction("Index", "Samples");
-                }
-                
+                return RedirectToAction("Index");
             }
 
             ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);

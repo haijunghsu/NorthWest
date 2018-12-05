@@ -18,7 +18,7 @@ namespace NorthWest.Models
         public string PaymentInfo { get; set; }
         public string Comments { get; set; }
         public int DiscountApplied { get; set; }
-        public int Deposit { get; set; }
+        public int? Deposit { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual SalesAgent SalesAgent { get; set; }

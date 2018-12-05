@@ -13,5 +13,6 @@ namespace NorthWest.Models
         [Key]
         public int MaterialID { get; set; }
         public string MaterialName { get; set; }
+        public int MaterialCost { get; set; }
     }
 }

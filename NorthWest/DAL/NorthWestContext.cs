@@ -20,6 +20,8 @@ namespace NorthWest.DAL
         public DbSet<WorkOrder> WorkOrders { get; set; }
         public DbSet<Sample> Samples { get; set; }
 
-        public System.Data.Entity.DbSet<NorthWest.Models.Assay> Assays { get; set; }
+        public DbSet<Assay> Assays { get; set; }
+        public DbSet<Test> Tests { get; set; }
+        public DbSet<Material> Materials { get; set; }
     }
 }

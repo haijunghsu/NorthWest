@@ -16,11 +16,12 @@ namespace NorthWest.Models
         public int? SeqCode { get; set; }
         public int AssayID { get; set; }
         public string SampleName { get; set; }
-        public int? Quantity { get; set; }
+        public int Quantity { get; set; }
         public DateTime? DateArrived { get; set; }
         public string ReceivedBy { get; set; }
         public DateTime? DueDate { get; set; }
         public string Appearance { get; set; }
+        public int WeightByClient { get; set; }
         public int? MolMass { get; set; }
         public DateTime? ConfirmationDTTM { get; set; }
         public int? ActualWeight { get; set; }
@@ -28,6 +29,7 @@ namespace NorthWest.Models
         public int? OrderID { get; set; }
 
         public virtual WorkOrder WorkOrder { get; set; }
+        public virtual Assay Assay { get; set; }
 
     }
 }

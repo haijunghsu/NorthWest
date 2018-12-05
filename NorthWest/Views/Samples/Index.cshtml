@@ -15,13 +15,13 @@
             @Html.DisplayNameFor(model => model.WorkOrder.OrderID)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Assay.AssayName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.LTNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SeqCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssayID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SampleName)
@@ -40,6 +40,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Appearance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WeightByClient)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MolMass)
@@ -62,13 +65,13 @@
             @Html.DisplayFor(modelItem => item.WorkOrder.OrderID)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Assay.AssayName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.LTNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SeqCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssayID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SampleName)
@@ -89,6 +92,9 @@
             @Html.DisplayFor(modelItem => item.Appearance)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.WeightByClient)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.MolMass)
         </td>
         <td>
@@ -101,9 +107,9 @@
             @Html.DisplayFor(modelItem => item.MTD)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SampleID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SampleID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SampleID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SampleID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SampleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SampleID })
         </td>
     </tr>
 }

@@ -19,5 +19,7 @@ namespace NorthWest.DAL
         public DbSet<Customer> Customers { get; set; }
         public DbSet<WorkOrder> WorkOrders { get; set; }
         public DbSet<Sample> Samples { get; set; }
+
+        public System.Data.Entity.DbSet<NorthWest.Models.Assay> Assays { get; set; }
     }
 }

@@ -12,6 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Assay.AssayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assay.AssayName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.WorkOrder.PaymentInfo)
         </dt>
 
@@ -33,14 +41,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.SeqCode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AssayID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AssayID)
         </dd>
 
         <dt>
@@ -89,6 +89,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Appearance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightByClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightByClient)
         </dd>
 
         <dt>

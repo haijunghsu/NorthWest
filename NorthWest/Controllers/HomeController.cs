@@ -43,13 +43,14 @@ namespace NorthWest.Controllers
         {
             //ViewBag.OrderID = new SelectList(db.WorkOrders, OrderID, "OrderID");
             //(db.WorkOrders, "OrderID", "OrderID");
+            ViewBag.AssayID = new SelectList(db.Assays, "AssayID", "AssayName");
             ViewBag.OrderID = OrderID;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SampleForm([Bind(Include = "SampleID,AssayID,SampleName")] Sample sample, int OrderID, string answer)
+        public ActionResult SampleForm([Bind(Include = "SampleID,AssayID,Quantity,WeightByClient,SampleName")] Sample sample, int OrderID, string answer)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +66,8 @@ namespace NorthWest.Controllers
                 }
             }
 
-            ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
+            ViewBag.AssayID = new SelectList(db.Assays, "AssayID", "AssayName", sample.AssayID);
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
             return View(sample);
         }
 

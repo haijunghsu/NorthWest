@@ -18,7 +18,7 @@ namespace NorthWest.Controllers
         // GET: Samples
         public ActionResult Index()
         {
-            var samples = db.Samples.Include(s => s.WorkOrder);
+            var samples = db.Samples.Include(s => s.Assay).Include(s => s.WorkOrder);
             return View(samples.ToList());
         }
 
@@ -40,7 +40,8 @@ namespace NorthWest.Controllers
         // GET: Samples/Create
         public ActionResult Create()
         {
-            ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderID", "OrderID");
+            ViewBag.AssayID = new SelectList(db.Assays, "AssayID", "AssayName");
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace NorthWest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SampleID,LTNumber,SeqCode,AssayID,SampleName,Quantity,DateArrived,ReceivedBy,DueDate,Appearance,MolMass,ConfirmationDTTM,ActualWeight,MTD,OrderId")] Sample sample)
+        public ActionResult Create([Bind(Include = "SampleID,LTNumber,SeqCode,AssayID,SampleName,Quantity,DateArrived,ReceivedBy,DueDate,Appearance,WeightByClient,MolMass,ConfirmationDTTM,ActualWeight,MTD,OrderID")] Sample sample)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +59,8 @@ namespace NorthWest.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
+            ViewBag.AssayID = new SelectList(db.Assays, "AssayID", "AssayName", sample.AssayID);
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
             return View(sample);
         }
 
@@ -74,7 +76,8 @@ namespace NorthWest.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
+            ViewBag.AssayID = new SelectList(db.Assays, "AssayID", "AssayName", sample.AssayID);
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
             return View(sample);
         }
 
@@ -83,7 +86,7 @@ namespace NorthWest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SampleID,LTNumber,SeqCode,AssayID,SampleName,Quantity,DateArrived,ReceivedBy,DueDate,Appearance,MolMass,ConfirmationDTTM,ActualWeight,MTD,OrderId")] Sample sample)
+        public ActionResult Edit([Bind(Include = "SampleID,LTNumber,SeqCode,AssayID,SampleName,Quantity,DateArrived,ReceivedBy,DueDate,Appearance,WeightByClient,MolMass,ConfirmationDTTM,ActualWeight,MTD,OrderID")] Sample sample)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +94,8 @@ namespace NorthWest.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
+            ViewBag.AssayID = new SelectList(db.Assays, "AssayID", "AssayName", sample.AssayID);
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
             return View(sample);
         }
 

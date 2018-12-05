@@ -17,10 +17,12 @@ namespace NorthWest.Models
         public int? TestTubeID { get; set; }
         public string PaymentInfo { get; set; }
         public string Comments { get; set; }
-        public int DiscountApplied { get; set; }
+        public int? DiscountApplied { get; set; }
         public int? Deposit { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual SalesAgent SalesAgent { get; set; }
+
+        public virtual ICollection<Sample> Samples { get; set; }
     }
 }

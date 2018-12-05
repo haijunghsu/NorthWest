@@ -53,7 +53,6 @@ namespace NorthWest.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 sample.OrderID = OrderID;
                 db.Samples.Add(sample);
                 db.SaveChanges();
@@ -64,7 +63,6 @@ namespace NorthWest.Controllers
                     case "Submit Sample(s)":
                         return RedirectToAction("Index", "Samples");
                 }
-                
             }
 
             ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", sample.OrderID);
@@ -75,7 +73,6 @@ namespace NorthWest.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

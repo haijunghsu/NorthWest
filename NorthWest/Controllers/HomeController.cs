@@ -78,5 +78,39 @@ namespace NorthWest.Controllers
 
             return View();
         }
+        public static List<OrderStatus> listOrderStatus = new List<OrderStatus>();
+        public ActionResult TrackOrder()
+        {
+            //customer's track your order
+            ViewBag.Message = "Your order is being tracked.";
+            //ViewBag.Output = orderStatus;
+
+            return View(listOrderStatus);
+        }
+
+        public ActionResult UpdateOrderStatus()
+        {
+            //employee updating a customer's order
+            //ViewBag.Output = orderStatus;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UpdateOrderStatus(OrderStatus orderStatus)
+        {
+            //check validity of model
+            if (ModelState.IsValid)
+            {
+                listOrderStatus.Add(orderStatus);
+                //return View("Confirmation", customer);
+                return View("Index");
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
     }
 }

@@ -1,0 +1,29 @@
+﻿@model NorthWest.Models.OrderStatus
+<!--Customer Form-->
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <p>Order ID: @Html.TextBoxFor(x => x.orderID)</p>
+
+            <p>
+                Status: @Html.DropDownListFor(x => x.status, new[]
+{new SelectListItem(){Text="Order received ", Value="Order received" },
+new SelectListItem(){Text="Testing in progress ", Value="Testing in progress" },
+new SelectListItem(){Text="Analyzing results", Value="Analyzing results" },
+new SelectListItem(){Text="Processing receipts", Value="Processing receipts" },
+new SelectListItem(){Text="Order complete", Value="Order complete" }}, "Choose an option")
+            </p>
+            @Html.HiddenFor(x => x.dateupdated, new { @Value = @DateTime.Now })
+            <br />
+            <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
+
+        }
+    </div>
+</div>

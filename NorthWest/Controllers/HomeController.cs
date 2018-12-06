@@ -87,7 +87,17 @@ namespace NorthWest.Controllers
             ViewBag.OrderID = OrderID;
             return View(db.Samples.ToList());
         }
+
         public static List<OrderStatus> listOrderStatus = new List<OrderStatus>();
+
+        public ActionResult TrackOrderGetOrderID()
+        {
+            //get customer's order id from customer
+            ViewBag.OrderID = 0;
+            return View();
+
+        }
+
         public ActionResult TrackOrder()
         {
             //customer's track your order

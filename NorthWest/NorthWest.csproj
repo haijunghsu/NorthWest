@@ -233,6 +233,7 @@
     <Content Include="Views\Test_Material\Edit.cshtml" />
     <Content Include="Views\Test_Material\Index.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
+    <Content Include="Views\Home\TrackOrderGetOrderID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

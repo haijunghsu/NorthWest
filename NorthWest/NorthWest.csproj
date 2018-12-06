@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SamplesController.cs" />
+    <Compile Include="Controllers\Test_MaterialController.cs" />
     <Compile Include="Controllers\WorkOrderController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="DAL\NorthWestContext.cs" />
@@ -164,6 +165,8 @@
     <Compile Include="Models\Assay.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\TestTube.cs" />
+    <Compile Include="Models\Test_Material.cs" />
     <Compile Include="Models\SalesAgent.cs" />
     <Compile Include="Models\Sample.cs" />
     <Compile Include="Models\Test.cs" />
@@ -221,6 +224,11 @@
     <Content Include="Views\Samples\Details.cshtml" />
     <Content Include="Views\Samples\Edit.cshtml" />
     <Content Include="Views\Samples\Index.cshtml" />
+    <Content Include="Views\Test_Material\Create.cshtml" />
+    <Content Include="Views\Test_Material\Delete.cshtml" />
+    <Content Include="Views\Test_Material\Details.cshtml" />
+    <Content Include="Views\Test_Material\Edit.cshtml" />
+    <Content Include="Views\Test_Material\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

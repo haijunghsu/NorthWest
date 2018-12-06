@@ -7,14 +7,17 @@ using System.Web;
 
 namespace NorthWest.Models
 {
-    [Table("Material")]
-    public class Material
+    [Table("Test_Material")]
+    public class Test_Material
     {
         [Key]
+        [Column(Order = 1)]
+        public int TestID { get; set; }
+        [Key]
+        [Column(Order = 2)]
         public int MaterialID { get; set; }
-        public string MaterialName { get; set; }
-        public int MaterialCost { get; set; }
 
-        public virtual ICollection<Test_Material> Material_Tests { get; set; }
+        public virtual Material Material { get; set; }
+        public virtual Test Test { get; set; }
     }
 }

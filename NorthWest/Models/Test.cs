@@ -16,5 +16,9 @@ namespace NorthWest.Models
         public string TestName { get; set; }
         public int BasePrice { get; set; } 
         public string TestRequired { get; set; }
+
+        public virtual Assay Assay { get; set; }
+        public virtual ICollection<TestTube> TestTubes { get; set; }
+        public virtual ICollection<Test_Material> Material_Tests { get; set; }
     }
 }

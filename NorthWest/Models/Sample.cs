@@ -30,6 +30,7 @@ namespace NorthWest.Models
 
         public virtual WorkOrder WorkOrder { get; set; }
         public virtual Assay Assay { get; set; }
+        public virtual ICollection<TestTube> TestTubes { get; set; }
 
     }
 }

@@ -1,0 +1,34 @@
+﻿@model NorthWest.Models.Test_Material
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Test_Material</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Material.MaterialName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Material.MaterialName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Test.TestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test.TestName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

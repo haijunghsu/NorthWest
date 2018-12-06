@@ -18,5 +18,6 @@ namespace NorthWest.Models
         public int EstimatedDays { get; set; }
 
         public virtual ICollection<Sample> Samples { get; set; }
+        public virtual ICollection<Test> Tests { get; set; }
     }
 }

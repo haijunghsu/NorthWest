@@ -23,5 +23,7 @@ namespace NorthWest.DAL
         public DbSet<Assay> Assays { get; set; }
         public DbSet<Test> Tests { get; set; }
         public DbSet<Material> Materials { get; set; }
+        public DbSet<Test_Material> Material_Tests { get; set; }
+        public DbSet<TestTube> TestTubes { get; set; }
     }
 }

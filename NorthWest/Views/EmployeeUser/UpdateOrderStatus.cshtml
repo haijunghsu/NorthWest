@@ -14,11 +14,11 @@
 
             <p>
                 Status: @Html.DropDownListFor(x => x.status, new[]
-{new SelectListItem(){Text="Order received ", Value="Order received" },
-new SelectListItem(){Text="Testing in progress ", Value="Testing in progress" },
-new SelectListItem(){Text="Analyzing results", Value="Analyzing results" },
-new SelectListItem(){Text="Processing receipts", Value="Processing receipts" },
-new SelectListItem(){Text="Order complete", Value="Order complete" }}, "Choose an option")
+                        {new SelectListItem(){Text="Order received ", Value="Order received" },
+                        new SelectListItem(){Text="Testing in progress ", Value="Testing in progress" },
+                        new SelectListItem(){Text="Analyzing results", Value="Analyzing results" },
+                        new SelectListItem(){Text="Processing receipts", Value="Processing receipts" },
+                        new SelectListItem(){Text="Order complete", Value="Order complete" }}, "Choose an option")
             </p>
             @Html.HiddenFor(x => x.dateupdated, new { @Value = @DateTime.Now })
             <br />

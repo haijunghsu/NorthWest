@@ -154,6 +154,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmployeeUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoicesController.cs" />
     <Compile Include="Controllers\SamplesController.cs" />
@@ -223,8 +224,8 @@
     <Content Include="Views\Samples\Details.cshtml" />
     <Content Include="Views\Samples\Edit.cshtml" />
     <Content Include="Views\Samples\Index.cshtml" />
-    <Content Include="Views\Home\TrackOrder.cshtml" />
-    <Content Include="Views\Home\UpdateOrderStatus.cshtml" />
+    <Content Include="Views\EmployeeUser\TrackOrder.cshtml" />
+    <Content Include="Views\EmployeeUser\UpdateOrderStatus.cshtml" />
     <Content Include="Views\Test_Material\Create.cshtml" />
     <Content Include="Views\Test_Material\Delete.cshtml" />
     <Content Include="Views\Test_Material\Details.cshtml" />
@@ -255,7 +256,9 @@
     <Content Include="Views\TestTubes\Details.cshtml" />
     <Content Include="Views\TestTubes\Edit.cshtml" />
     <Content Include="Views\TestTubes\Index.cshtml" />
-    <Content Include="Views\Home\TrackOrderGetOrderID.cshtml" />
+    <Content Include="Views\EmployeeUser\TrackOrderGetOrderID.cshtml" />
+    <Content Include="Views\EmployeeUser\Index.cshtml" />
+    <Content Include="Views\EmployeeUser\SelectOrderID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -167,6 +167,7 @@
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\TestTube.cs" />
     <Compile Include="Models\Test_Material.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Models\SalesAgent.cs" />
     <Compile Include="Models\Sample.cs" />
     <Compile Include="Models\Test.cs" />
@@ -224,6 +225,8 @@
     <Content Include="Views\Samples\Details.cshtml" />
     <Content Include="Views\Samples\Edit.cshtml" />
     <Content Include="Views\Samples\Index.cshtml" />
+    <Content Include="Views\Home\TrackOrder.cshtml" />
+    <Content Include="Views\Home\UpdateOrderStatus.cshtml" />
     <Content Include="Views\Test_Material\Create.cshtml" />
     <Content Include="Views\Test_Material\Delete.cshtml" />
     <Content Include="Views\Test_Material\Details.cshtml" />

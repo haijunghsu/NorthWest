@@ -153,10 +153,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoicesController.cs" />
     <Compile Include="Controllers\SamplesController.cs" />
+    <Compile Include="Controllers\TestTubesController.cs" />
     <Compile Include="Controllers\Test_MaterialController.cs" />
-    <Compile Include="Controllers\WorkOrderController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="DAL\NorthWestContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -164,6 +166,7 @@
     </Compile>
     <Compile Include="Models\Assay.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\TestTube.cs" />
     <Compile Include="Models\Test_Material.cs" />
@@ -213,11 +216,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\WorkOrders\Create.cshtml" />
-    <Content Include="Views\WorkOrders\Delete.cshtml" />
-    <Content Include="Views\WorkOrders\Details.cshtml" />
-    <Content Include="Views\WorkOrders\Edit.cshtml" />
-    <Content Include="Views\WorkOrders\Index.cshtml" />
     <Content Include="Views\Home\PlaceOrder.cshtml" />
     <Content Include="Views\Home\SampleForm.cshtml" />
     <Content Include="Views\Samples\Create.cshtml" />
@@ -233,11 +231,34 @@
     <Content Include="Views\Test_Material\Edit.cshtml" />
     <Content Include="Views\Test_Material\Index.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\WorkOrders\Create.cshtml" />
+    <Content Include="Views\WorkOrders\Delete.cshtml" />
+    <Content Include="Views\WorkOrders\Details.cshtml" />
+    <Content Include="Views\WorkOrders\Edit.cshtml" />
+    <Content Include="Views\WorkOrders\Index.cshtml" />
+    <Content Include="Views\Invoices\Create.cshtml" />
+    <Content Include="Views\Invoices\Delete.cshtml" />
+    <Content Include="Views\Invoices\Details.cshtml" />
+    <Content Include="Views\Invoices\Edit.cshtml" />
+    <Content Include="Views\Invoices\Index.cshtml" />
+    <Content Include="Views\Home\SelectCust.cshtml" />
+    <Content Include="Views\Home\CustInvoice.cshtml" />
+    <Content Include="Views\Home\OrderAssayList.cshtml" />
+    <Content Include="Views\Home\TestResults.cshtml" />
+    <Content Include="Views\TestTubes\Create.cshtml" />
+    <Content Include="Views\TestTubes\Delete.cshtml" />
+    <Content Include="Views\TestTubes\Details.cshtml" />
+    <Content Include="Views\TestTubes\Edit.cshtml" />
+    <Content Include="Views\TestTubes\Index.cshtml" />
     <Content Include="Views\Home\TrackOrderGetOrderID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\WorkOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

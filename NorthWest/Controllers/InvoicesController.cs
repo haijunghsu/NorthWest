@@ -11,116 +11,113 @@ using NorthWest.Models;
 
 namespace NorthWest.Controllers
 {
-    public class WorkOrdersController : Controller
+    public class InvoicesController : Controller
     {
         private NorthWestContext db = new NorthWestContext();
 
-        // GET: WorkOrders
+        // GET: Invoices
         public ActionResult Index()
         {
-            var workOrders = db.WorkOrders.Include(w => w.Customer).Include(w => w.SalesAgent);
-            return View(workOrders.ToList());
+            var invoices = db.Invoices.Include(i => i.WorkOrder);
+            //var workOrders = db.WorkOrders.Include(w => w.Customer).Include(w => w.SalesAgent);
+            return View(invoices.ToList());
         }
 
-        // GET: WorkOrders/Details/5
+        // GET: Invoices/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            if (workOrder == null)
+            Invoice invoice = db.Invoices.Find(id);
+            if (invoice == null)
             {
                 return HttpNotFound();
             }
-            return View(workOrder);
+            return View(invoice);
         }
 
-        // GET: WorkOrders/Create
+        // GET: Invoices/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName");
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName");
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "OrderID");
             return View();
         }
 
-        // POST: WorkOrders/Create
+        // POST: Invoices/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,AgentID,CustomerID,PaymentInfo,Comments,DiscountApplied,Deposit")] WorkOrder workOrder)
+        public ActionResult Create([Bind(Include = "InvoiceID,DateDue,EarlyPmtDue,EarlyPmtDiscount,SentAt,OrderID,Balance")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
-                db.WorkOrders.Add(workOrder);
+                db.Invoices.Add(invoice);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName", workOrder.CustomerID);
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName", workOrder.AgentID);
-            return View(workOrder);
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "OrderID", invoice.OrderID);
+            return View(invoice);
         }
 
-        // GET: WorkOrders/Edit/5
+        // GET: Invoices/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            if (workOrder == null)
+            Invoice invoice = db.Invoices.Find(id);
+            if (invoice == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName", workOrder.CustomerID);
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName", workOrder.AgentID);
-            return View(workOrder);
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", invoice.OrderID);
+            return View(invoice);
         }
 
-        // POST: WorkOrders/Edit/5
+        // POST: Invoices/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,AgentID,CustomerID,PaymentInfo,Comments,DiscountApplied,Deposit")] WorkOrder workOrder)
+        public ActionResult Edit([Bind(Include = "InvoiceID,DateDue,EarlyPmtDue,EarlyPmtDiscount,SentAt,OrderID,Balance")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(workOrder).State = EntityState.Modified;
+                db.Entry(invoice).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName", workOrder.CustomerID);
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName", workOrder.AgentID);
-            return View(workOrder);
+            ViewBag.OrderID = new SelectList(db.WorkOrders, "OrderID", "PaymentInfo", invoice.OrderID);
+            return View(invoice);
         }
 
-        // GET: WorkOrders/Delete/5
+        // GET: Invoices/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            if (workOrder == null)
+            Invoice invoice = db.Invoices.Find(id);
+            if (invoice == null)
             {
                 return HttpNotFound();
             }
-            return View(workOrder);
+            return View(invoice);
         }
 
-        // POST: WorkOrders/Delete/5
+        // POST: Invoices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            db.WorkOrders.Remove(workOrder);
+            Invoice invoice = db.Invoices.Find(id);
+            db.Invoices.Remove(invoice);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

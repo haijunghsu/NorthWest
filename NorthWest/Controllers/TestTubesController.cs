@@ -11,116 +11,116 @@ using NorthWest.Models;
 
 namespace NorthWest.Controllers
 {
-    public class WorkOrdersController : Controller
+    public class TestTubesController : Controller
     {
         private NorthWestContext db = new NorthWestContext();
 
-        // GET: WorkOrders
+        // GET: TestTubes
         public ActionResult Index()
         {
-            var workOrders = db.WorkOrders.Include(w => w.Customer).Include(w => w.SalesAgent);
-            return View(workOrders.ToList());
+            var testTubes = db.TestTubes.Include(t => t.Sample).Include(t => t.Test);
+            return View(testTubes.ToList());
         }
 
-        // GET: WorkOrders/Details/5
+        // GET: TestTubes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            if (workOrder == null)
+            TestTube testTube = db.TestTubes.Find(id);
+            if (testTube == null)
             {
                 return HttpNotFound();
             }
-            return View(workOrder);
+            return View(testTube);
         }
 
-        // GET: WorkOrders/Create
+        // GET: TestTubes/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName");
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName");
+            ViewBag.SampleID = new SelectList(db.Samples, "SampleID", "SampleName");
+            ViewBag.TestID = new SelectList(db.Tests, "TestID", "TestName");
             return View();
         }
 
-        // POST: WorkOrders/Create
+        // POST: TestTubes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,AgentID,CustomerID,PaymentInfo,Comments,DiscountApplied,Deposit")] WorkOrder workOrder)
+        public ActionResult Create([Bind(Include = "TestTubeID,SampleID,TestTubeNo,TechID,TestID,TotalMaterialCost,HourlyWage,Hours,QuantResult,QualResult,Pass_Fail,TotalCost")] TestTube testTube)
         {
             if (ModelState.IsValid)
             {
-                db.WorkOrders.Add(workOrder);
+                db.TestTubes.Add(testTube);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName", workOrder.CustomerID);
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName", workOrder.AgentID);
-            return View(workOrder);
+            ViewBag.SampleID = new SelectList(db.Samples, "SampleID", "SampleName", testTube.SampleID);
+            ViewBag.TestID = new SelectList(db.Tests, "TestID", "TestName", testTube.TestID);
+            return View(testTube);
         }
 
-        // GET: WorkOrders/Edit/5
+        // GET: TestTubes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            if (workOrder == null)
+            TestTube testTube = db.TestTubes.Find(id);
+            if (testTube == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName", workOrder.CustomerID);
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName", workOrder.AgentID);
-            return View(workOrder);
+            ViewBag.SampleID = new SelectList(db.Samples, "SampleID", "SampleName", testTube.SampleID);
+            ViewBag.TestID = new SelectList(db.Tests, "TestID", "TestName", testTube.TestID);
+            return View(testTube);
         }
 
-        // POST: WorkOrders/Edit/5
+        // POST: TestTubes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,AgentID,CustomerID,PaymentInfo,Comments,DiscountApplied,Deposit")] WorkOrder workOrder)
+        public ActionResult Edit([Bind(Include = "TestTubeID,SampleID,TestTubeNo,TechID,TestID,TotalMaterialCost,HourlyWage,Hours,QuantResult,QualResult,Pass_Fail,TotalCost")] TestTube testTube)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(workOrder).State = EntityState.Modified;
+                db.Entry(testTube).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName", workOrder.CustomerID);
-            ViewBag.AgentID = new SelectList(db.SalesAgents, "AgentID", "AgentName", workOrder.AgentID);
-            return View(workOrder);
+            ViewBag.SampleID = new SelectList(db.Samples, "SampleID", "SampleName", testTube.SampleID);
+            ViewBag.TestID = new SelectList(db.Tests, "TestID", "TestName", testTube.TestID);
+            return View(testTube);
         }
 
-        // GET: WorkOrders/Delete/5
+        // GET: TestTubes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            if (workOrder == null)
+            TestTube testTube = db.TestTubes.Find(id);
+            if (testTube == null)
             {
                 return HttpNotFound();
             }
-            return View(workOrder);
+            return View(testTube);
         }
 
-        // POST: WorkOrders/Delete/5
+        // POST: TestTubes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            WorkOrder workOrder = db.WorkOrders.Find(id);
-            db.WorkOrders.Remove(workOrder);
+            TestTube testTube = db.TestTubes.Find(id);
+            db.TestTubes.Remove(testTube);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

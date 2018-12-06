@@ -1,0 +1,66 @@
+﻿@model NorthWest.Models.Invoice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Invoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkOrder.PaymentInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkOrder.PaymentInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyPmtDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EarlyPmtDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyPmtDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EarlyPmtDiscount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InvoiceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -25,5 +25,7 @@ namespace NorthWest.DAL
         public DbSet<Material> Materials { get; set; }
         public DbSet<Test_Material> Material_Tests { get; set; }
         public DbSet<TestTube> TestTubes { get; set; }
+
+        public System.Data.Entity.DbSet<NorthWest.Models.Invoice> Invoices { get; set; }
     }
 }

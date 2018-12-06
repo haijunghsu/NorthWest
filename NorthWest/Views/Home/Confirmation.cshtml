@@ -1,0 +1,19 @@
+﻿@model IEnumerable<NorthWest.Models.Sample>
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+<h2>Confirmation</h2>
+<h3>Step 1. Label your samples with sample numbers:</h3>
+@foreach (var item in Model)
+{
+    if (item.OrderID == ViewBag.OrderID)
+    {
+        <h4>Sample Number: @Html.DisplayFor(modelItem => item.SampleID) </h4>
+    }
+}
+
+<br />
+<h3>Step 2. Send your samples to this address:</h3>
+
+ 

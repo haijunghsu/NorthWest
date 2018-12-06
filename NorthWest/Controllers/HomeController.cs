@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Net;
 using System.Web.Mvc;
 using NorthWest.DAL;
 using NorthWest.Models;
+using System.Data.Entity;
 
 namespace NorthWest.Controllers
 {
@@ -57,12 +60,13 @@ namespace NorthWest.Controllers
                 sample.OrderID = OrderID;
                 db.Samples.Add(sample);
                 db.SaveChanges();
+
                 switch (answer)
                 {
                     case "Add New Sample":
                         return RedirectToAction("SampleForm", new { OrderID = OrderID });
                     case "Submit Sample(s)":
-                        return RedirectToAction("Index", "Samples");
+                        return RedirectToAction("Confirmation", new { OrderID = OrderID });
                 }
             }
 
@@ -76,6 +80,12 @@ namespace NorthWest.Controllers
         {
             ViewBag.Message = "Your contact page.";
             return View();
+        }
+
+        public ActionResult Confirmation(int OrderID)
+        {
+            ViewBag.OrderID = OrderID;
+            return View(db.Samples.ToList());
         }
     }
 }

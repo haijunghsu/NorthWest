@@ -1,0 +1,54 @@
+﻿@model IEnumerable<NorthWest.Models.TestTube>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sample: @Html.Raw((string)ViewBag.SampleName)</h2>
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pass_Fail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Test.TestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestTubeNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantResult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QualResult)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if(item.SampleID == ViewBag.SampleID)
+        { 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pass_Fail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Test.TestName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestTubeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QualResult)
+            </td>
+        </tr>
+        }
+    }
+
+</table>

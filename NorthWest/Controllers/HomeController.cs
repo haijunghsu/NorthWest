@@ -44,8 +44,6 @@ namespace NorthWest.Controllers
 
         public ActionResult SampleForm(int OrderID)
         {
-            //ViewBag.OrderID = new SelectList(db.WorkOrders, OrderID, "OrderID");
-            //(db.WorkOrders, "OrderID", "OrderID");
             ViewBag.AssayID = new SelectList(db.Assays, "AssayID", "AssayName");
             ViewBag.OrderID = OrderID;
             return View();
@@ -121,5 +119,42 @@ namespace NorthWest.Controllers
             }
             
         }
+
+        public ActionResult SelectCust()
+        {
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustName");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SelectCust([Bind(Include = "CustomerID")] WorkOrder workOrder)
+        {
+            int CustID = workOrder.CustomerID;
+            return RedirectToAction("CustInvoice", new { CustID = CustID });
+        }
+
+        public ActionResult CustInvoice(int CustID)
+        {
+            ViewBag.CustID = CustID;
+            var invoices = db.Invoices.Include(i => i.WorkOrder);
+            return View(invoices.ToList());
+        }
+
+        public ActionResult OrderAssayList(int id)
+        {
+            ViewBag.OrderID = id;
+            var samples = db.Samples.Include(s => s.Assay).Include(s => s.WorkOrder);
+            return View(samples.ToList());
+        }
+        
+        public ActionResult TestResults(int id, string sampleName)
+        {
+            ViewBag.SampleID = id;
+            ViewBag.SampleName = sampleName;
+            var testTubes = db.TestTubes.Include(t => t.Sample).Include(t => t.Test);
+            return View(testTubes.ToList());
+        }
+
     }
 }

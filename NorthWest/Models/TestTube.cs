@@ -11,6 +11,7 @@ namespace NorthWest.Models
     public class TestTube
     {
         [Key]
+
         public int TestTubeID { get; set; }
         public int SampleID { get; set; }
         public int TestTubeNo { get; set; }
@@ -21,6 +22,8 @@ namespace NorthWest.Models
         public int Hours { get; set; }
         public string QuantResult { get; set; }
         public string QualResult { get; set; }
+        public string Pass_Fail { get; set; }
+        public int TotalCost { get; set; }
 
         public virtual Sample Sample { get; set; }
         public virtual Test Test { get; set; }

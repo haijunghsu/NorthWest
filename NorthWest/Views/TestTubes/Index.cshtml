@@ -1,0 +1,93 @@
+﻿@model IEnumerable<NorthWest.Models.TestTube>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sample.SampleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Test.TestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestTubeNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalMaterialCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourlyWage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantResult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QualResult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pass_Fail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sample.SampleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Test.TestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestTubeNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TechID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalMaterialCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HourlyWage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantResult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QualResult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pass_Fail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TestTubeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TestTubeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TestTubeID })
+        </td>
+    </tr>
+}
+
+</table>

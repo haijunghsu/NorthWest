@@ -12,9 +12,8 @@ namespace NorthWest.Models
     {
         [Key]
         public int OrderID { get; set; }
-        public int AgentID { get; set; }
+        public int? AgentID { get; set; }
         public int CustomerID { get; set; }
-        public int? TestTubeID { get; set; }
         public string PaymentInfo { get; set; }
         public string Comments { get; set; }
         public int? DiscountApplied { get; set; }

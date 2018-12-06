@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NorthWest.Models.Sample>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order ID: @Html.Raw((int)ViewBag.OrderID)</h2>
+
+<p></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkOrder.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assay.AssayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SampleName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if(item.WorkOrder.OrderID == ViewBag.OrderID)
+        {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkOrder.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assay.AssayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SampleName)
+            </td>
+            <td>
+                @Html.ActionLink("View Test Results", "TestResults", new { id = item.SampleID, sampleName = item.SampleName }) |
+            </td>
+        </tr>
+
+        }
+    }
+
+</table>

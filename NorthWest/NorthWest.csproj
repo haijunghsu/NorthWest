@@ -169,6 +169,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\Technician.cs" />
     <Compile Include="Models\TestTube.cs" />
     <Compile Include="Models\Test_Material.cs" />
     <Compile Include="Models\OrderStatus.cs" />

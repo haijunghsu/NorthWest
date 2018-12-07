@@ -3,17 +3,22 @@
     ViewBag.Title = "Confirmation";
 }
 
-<h2>Confirmation</h2>
-<h3>Step 1. Label your samples with sample numbers:</h3>
+<h2 class="text-center">Confirmation</h2>
+<h3 class="text-center">Step 1. Write your sample number on the package:</h3>
 @foreach (var item in Model)
 {
     if (item.OrderID == ViewBag.OrderID)
     {
-        <h4>Sample Number: @Html.DisplayFor(modelItem => item.SampleID) </h4>
+        <h4 class="text-center">Sample Number: @Html.DisplayFor(modelItem => item.SampleID) </h4>
     }
 }
 
 <br />
-<h3>Step 2. Send your samples to this address:</h3>
+<h3 class="text-center">Step 2. Send your samples to our address:</h3>
+<h4 class="text-center">#11-00, Hong Leong Building, 12 Raffles Quay, Singapore 048581</h4>
+
+<p class="text-center">After our qualified team tests your samples, we will email you a receipt with a link to the sample results</p>
+
+<h3 class="text-center">Thank you for your order</h3>
 
  

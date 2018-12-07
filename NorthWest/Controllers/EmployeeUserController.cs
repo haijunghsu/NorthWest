@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+    Team 1-3: Tiara Johnson, Bailey Coleman, HaiJung Hsu, and Ethan Guinn
+    Description: Intex
+    Date: 12/07/2018
+ */
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;

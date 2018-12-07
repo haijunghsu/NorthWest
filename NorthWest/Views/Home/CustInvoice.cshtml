@@ -4,30 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Invoices</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.WorkOrder.CustomerID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WorkOrder.Customer.CustName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.WorkOrder.OrderID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateDue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EarlyPmtDue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EarlyPmtDiscount)
+            @Html.DisplayNameFor(model => model.InvoiceID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SentAt)
@@ -45,22 +32,10 @@
 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.WorkOrder.CustomerID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WorkOrder.Customer.CustName)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.WorkOrder.OrderID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateDue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EarlyPmtDue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EarlyPmtDiscount)
+                @Html.DisplayFor(modelItem => item.InvoiceID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SentAt)
@@ -69,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Balance)
             </td>
             <td>
-                @Html.ActionLink("View Detail", "OrderAssayList", new { id = item.OrderID }) |
+                @Html.ActionLink("View Detail", "OrderAssayList", new { id = item.OrderID })
             </td>
         </tr>
         }

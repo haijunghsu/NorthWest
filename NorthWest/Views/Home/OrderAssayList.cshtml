@@ -10,13 +10,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.WorkOrder.OrderID)
+            @Html.DisplayNameFor(model => model.SampleName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Assay.AssayName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SampleName)
         </th>
         <th></th>
     </tr>
@@ -28,16 +25,13 @@
 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.WorkOrder.OrderID)
+                @Html.DisplayFor(modelItem => item.SampleName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Assay.AssayName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SampleName)
-            </td>
-            <td>
-                @Html.ActionLink("View Test Results", "TestResults", new { id = item.SampleID, sampleName = item.SampleName }) |
+                @Html.ActionLink("View Test Results", "TestResults", new { id = item.SampleID, sampleName = item.SampleName }) 
             </td>
         </tr>
 

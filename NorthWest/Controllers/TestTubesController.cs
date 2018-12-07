@@ -50,7 +50,7 @@ namespace NorthWest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TestTubeID,SampleID,TestTubeNo,TechID,TestID,TotalMaterialCost,HourlyWage,Hours,QuantResult,QualResult,Pass_Fail,TotalCost")] TestTube testTube)
+        public ActionResult Create([Bind(Include = "TestTubeID,SampleID,TestTubeNo,TechID,TestID,TotalMaterialCost,QuantResult,QualResult,Pass_Fail,TotalCost")] TestTube testTube)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace NorthWest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TestTubeID,SampleID,TestTubeNo,TechID,TestID,TotalMaterialCost,HourlyWage,Hours,QuantResult,QualResult,Pass_Fail,TotalCost")] TestTube testTube)
+        public ActionResult Edit([Bind(Include = "TestTubeID,SampleID,TestTubeNo,TechID,TestID,TotalMaterialCost,QuantResult,QualResult,Pass_Fail,TotalCost")] TestTube testTube)
         {
             if (ModelState.IsValid)
             {

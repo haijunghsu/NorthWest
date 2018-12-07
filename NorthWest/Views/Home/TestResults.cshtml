@@ -14,10 +14,10 @@
             @Html.DisplayNameFor(model => model.Pass_Fail)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Test.TestName)
+            @Html.DisplayNameFor(model => model.TestTubeID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TestTubeNo)
+            @Html.DisplayNameFor(model => model.Test.TestName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.QuantResult)
@@ -36,16 +36,16 @@
                 @Html.DisplayFor(modelItem => item.Pass_Fail)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.TestTubeID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Test.TestName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TestTubeNo)
+                <input type="button" class="btn btn-primary btn-lg" value="Download" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.QuantResult)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QualResult)
+                <input type="button" class="btn btn-primary btn-lg" value="Download" />
             </td>
         </tr>
         }

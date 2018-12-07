@@ -251,14 +251,18 @@
     <Content Include="Views\Home\CustInvoice.cshtml" />
     <Content Include="Views\Home\OrderAssayList.cshtml" />
     <Content Include="Views\Home\TestResults.cshtml" />
+    <Content Include="Views\EmployeeUser\TrackOrderGetOrderID.cshtml" />
+    <Content Include="Views\EmployeeUser\Index.cshtml" />
+    <Content Include="Views\EmployeeUser\SelectOrderID.cshtml" />
+    <Content Include="Views\Home\CustomerLogin.cshtml" />
+    <Content Include="Views\Home\CustomerDashboard.cshtml" />
+    <Content Include="Views\Home\EditProfile.cshtml" />
+    <Content Include="Views\Home\CustOrders.cshtml" />
     <Content Include="Views\TestTubes\Create.cshtml" />
     <Content Include="Views\TestTubes\Delete.cshtml" />
     <Content Include="Views\TestTubes\Details.cshtml" />
     <Content Include="Views\TestTubes\Edit.cshtml" />
     <Content Include="Views\TestTubes\Index.cshtml" />
-    <Content Include="Views\EmployeeUser\TrackOrderGetOrderID.cshtml" />
-    <Content Include="Views\EmployeeUser\Index.cshtml" />
-    <Content Include="Views\EmployeeUser\SelectOrderID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

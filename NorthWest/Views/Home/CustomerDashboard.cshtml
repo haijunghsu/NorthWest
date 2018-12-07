@@ -1,0 +1,35 @@
+﻿@model IEnumerable<NorthWest.Models.Customer>
+
+@{
+    ViewBag.Title = "CustomerDashboard";
+}
+
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+</style>
+
+<div class="content">
+    <h2>Welcome, @Html.Raw((string)ViewBag.custName)</h2>
+    <h5>Please select an option</h5>
+    <hr />
+    <ul>
+        <li>
+            @Html.ActionLink("Place a new order", "PlaceOrder")
+        </li>
+        <li>
+            @Html.ActionLink("View Past orders and results", "CustInvoice")
+        </li>
+        <li>
+            @Html.ActionLink("Track current order", "CustOrders")
+        </li>
+        <li>
+            @Html.ActionLink("Edit Profile", "EditProfile", new { id = ViewBag.custID })
+        </li>
+    </ul>
+</div>
+
+
+
